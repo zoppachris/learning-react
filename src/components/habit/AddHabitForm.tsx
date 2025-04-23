@@ -9,8 +9,8 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store/store";
-import { addHabit } from "../store/habit-slice";
+import { AppDispatch } from "../../store/store";
+import { addHabit } from "../../store/habit-slice";
 
 const AddHabitForm: React.FC = () => {
   const [name, setName] = useState<string>("");

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../store/store";
+import { AppDispatch, RootState } from "../../store/store";
 import {
   Box,
   Button,
@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { CheckCircle, Delete } from "@mui/icons-material";
-import { Habit, removeHabit, toggleHabit } from "../store/habit-slice";
+import { Habit, removeHabit, toggleHabit } from "../../store/habit-slice";
 
 const HabitList: React.FC = () => {
   const { habits } = useSelector((state: RootState) => state.habits);
@@ -18,22 +18,21 @@ const HabitList: React.FC = () => {
 
   const today = new Date().toISOString().split("T")[0];
 
-
   const getStreak = (habit: Habit) => {
-    let strek = 0;
+    let streak = 0;
     const currentDate = new Date();
 
     while (true) {
       const dateString = currentDate.toISOString().split("T")[0];
       if (habit.completeDates.includes(dateString)) {
-        strek++;
+        streak++;
         currentDate.setDate(currentDate.getDate() - 1);
       } else {
         break;
       }
     }
 
-    return strek;
+    return streak;
   };
 
   return (
