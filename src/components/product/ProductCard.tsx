@@ -13,7 +13,7 @@ type ProductCardProps = {
 };
 
 const ProductCard = ({ product }: ProductCardProps) => {
-  console.log("product : ", product.id);
+  
   return (
     <Card sx={{ minWidth: 275, height: "100%" }} key={product.id}>
       <CardContent>

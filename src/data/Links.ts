@@ -6,7 +6,14 @@ export interface NavigationItem {
 export const navigation: NavigationItem[] = [
   { name: "Home", path: "/" },
   { name: "Product", path: "/product" },
-  { name: "About", path: "/about" },
+  { name: "Product Reducer", path: "/product-reducer" },
 ];
 
 export const setting: string[] = ["Profile", "Account", "Dashboard", "Logout"];
+
+export const BigArray = new Array(29_999_999).fill(0).map((_, i) => {
+  return {
+    id: i,
+    isSelected: i === 29_999_998,
+  };
+});

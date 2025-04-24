@@ -1,26 +1,26 @@
 import { Container, Typography } from "@mui/material";
 import React, { Suspense } from "react";
-import ProductList from "../components/product/ProductList";
 import { ErrorBoundary } from "react-error-boundary";
 import SkeletonProductList from "../components/skeleton/SkeletonProductList";
+import ProductListReducer from "../components/product/ProducListReducer";
 
 const ErrorFallback = ({ error }: { error: Error }) => (
   <div>Error: {error.message}</div>
 );
 
-const Product: React.FC = () => {
+const ProductReducer: React.FC = () => {
   return (
     <Container maxWidth="md">
       <Typography component="h1" variant="h2" align="center">
-        Product
+        Product Reducer
       </Typography>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Suspense fallback={<SkeletonProductList />}>
-          <ProductList />
+          <ProductListReducer />
         </Suspense>
       </ErrorBoundary>
     </Container>
   );
 };
 
-export default Product;
+export default ProductReducer;
