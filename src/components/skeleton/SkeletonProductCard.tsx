@@ -4,6 +4,7 @@ import { Card, CardContent, Skeleton } from "@mui/material";
 const SkeletonProductCard = () => {
   return (
     <Card sx={{ minWidth: 275, height: "100%" }}>
+      <Skeleton variant="rectangular" height={200} sx={{ mb: 1 }} />
       <CardContent>
         <Skeleton variant="rectangular" height={20} sx={{ mb: 1 }} />
         <Skeleton variant="rectangular" height={30} sx={{ mb: 1 }} />

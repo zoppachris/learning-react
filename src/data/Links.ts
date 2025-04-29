@@ -7,6 +7,7 @@ export const navigation: NavigationItem[] = [
   { name: "Home", path: "/" },
   { name: "Product", path: "/product" },
   { name: "Product Reducer", path: "/product-reducer" },
+  { name: "Product Redux", path: "/product-redux" },
 ];
 
 export const setting: string[] = ["Profile", "Account", "Dashboard", "Logout"];

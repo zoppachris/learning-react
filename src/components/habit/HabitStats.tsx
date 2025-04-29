@@ -8,7 +8,6 @@ const HabitStats: React.FC = () => {
   const { habits, isLoading, error } = useSelector(
     (state: RootState) => state.habits
   );
-  const dispatch = useDispatch<AppDispatch>();
 
   const getCompletedToday = () => {
     const today = new Date().toISOString().split("T")[0];
@@ -36,9 +35,7 @@ const HabitStats: React.FC = () => {
     return Math.max(...habits.map(getStreak), 0);
   };
 
-  useEffect(() => {
-    dispatch(fetchHabits());
-  }, []);
+  
 
   if (isLoading) {
     return <LinearProgress />;

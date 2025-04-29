@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
 import {
@@ -10,13 +10,24 @@ import {
   Typography,
 } from "@mui/material";
 import { CheckCircle, Delete } from "@mui/icons-material";
-import { Habit, removeHabit, toggleHabit } from "../../store/habit-slice";
+import {
+  fetchHabits,
+  Habit,
+  removeHabit,
+  toggleHabit,
+} from "../../store/habit-slice";
 
 const HabitList: React.FC = () => {
   const { habits } = useSelector((state: RootState) => state.habits);
   const dispatch = useDispatch<AppDispatch>();
 
   const today = new Date().toISOString().split("T")[0];
+
+  useEffect(() => {
+    if (habits.length <= 0) {
+      dispatch(fetchHabits());
+    }
+  }, []);
 
   const getStreak = (habit: Habit) => {
     let streak = 0;
